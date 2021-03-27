@@ -1,0 +1,371 @@
+﻿@model Insta.Models.FileUploadModel
+<style>
+    /*html,body {
+  background: #efefef;
+  font-family: "Arial";
+}
+
+.container {
+  max-width: 1250px;
+  margin: 30px auto 30px;
+  padding: 0 !important;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+}*/
+
+    header {
+        background: #eee;
+        background-image: url("../../UploadedFiles/2019-11-27-paris-thumbnail.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        background-color: red;
+        margin-top: -23px;
+        height: 300px;
+    }
+
+header i {
+  position: relative;
+  cursor: pointer;
+  right: -96%;
+  top: 25px;
+  font-size: 18px !important;
+  color: #fff;
+}
+
+@*@media (max-width:800px) {
+  header {
+    height: 150px;
+  }
+
+  header i {
+    right: -90%;
+  }
+}*@
+
+main {
+      padding: 20px 20px 0px 20px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
+  margin-top: -120px;
+  border-radius: 100px;
+  border: 4px solid #fff;
+}
+
+.active {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  position: absolute;
+  right: calc(50% - 70px);
+  top: 75px;
+  background-color: #FFC107;
+  border: 3px solid #fff;
+}
+
+@*@media (max-width:990px) {
+  .active {
+    right: calc(50% - 60px);
+    top: 50px;
+  }
+}*@
+
+.name {
+  margin-top: 20px;
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-size: 18pt;
+  color: #777;
+}
+
+.info {
+  margin-top: -5px;
+  margin-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11pt;
+  color: #aaa;
+}
+
+.stats {
+  margin-top: 25px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ededed;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.number-stat {
+  padding: 0px;
+  font-size: 14pt;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #aaa;
+}
+
+.desc-stat {
+  margin-top: -15px;
+  font-size: 10pt;
+  color: #bbb;
+}
+
+.desc {
+  text-align: center;
+  margin-top: 25px;
+  margin: 25px 40px;
+  color: #999;
+  font-size: 11pt;
+  font-family: "Open Sans";
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ededed;
+}
+
+.social {
+  margin: 5px 0 12px 0;
+  text-align: center;
+  display: inline-block;
+  font-size: 20pt;
+}
+
+.social i {
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+.social i:nth-child(1)  { color: #4267b2; }
+.social i:nth-child(2)  { color: #1da1f2; }
+.social i:nth-child(3)  { color: #bd081c; }
+.social i:nth-child(4)  { color: #36465d; }
+
+.right {
+  padding: 0 25px 0 25px !important;
+}
+
+.nav {
+  display: inline-flex;
+}
+
+.nav li {
+  cursor: pointer;
+  font-size: 13pt;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #888;
+}
+
+.nav li:hover, .nav li:nth-child(1)  {
+  color: #999;
+  border-bottom: 2px solid #999;
+}
+
+    .follow {
+        /*  position: absolute;
+  right: 8%;
+  top: 35px;
+  font-size: 11pt;
+  background-color: #42b1fa;
+  color: #fff;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all .4s;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;*/
+        position: absolute;
+        right: -1%;
+        top: -14px;
+        font-size: 11pt;
+        background-color: #761fc6;
+        color: #fff;
+        padding: 8px 15px;
+        cursor: pointer;
+        transition: all .4s;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+    }
+
+.follow:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2), 0 0 15px rgba(0,0,0,0.2);
+}
+
+@*@media (max-width:990px) {
+  .nav {
+    display: none;
+  }*@
+
+    .follow {
+        /*  width: 50%;
+    margin-left: 25%;
+    display: block;
+    position: unset;
+    text-align: center;*/
+        width: 23%;
+        margin-left: 25%;
+        display: block;
+       
+        text-align: center;
+    }
+}
+.gallery  {
+  margin-top: 35px;
+}
+
+.gallery div {
+  margin-bottom: 30px;
+}
+
+.gallery img {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  max-width: 100%;
+}
+</style>
+<div class="container">
+    <header>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </header>
+    <main>
+        <div class="row">
+            <div class="left col-lg-4">
+                <div class="photo-left">
+                    <img class="photo" src="~/UploadedFiles/me.jpg" />
+                    <div class="active"></div>
+                </div>
+                <h4 class="name">Rami Sadki</h4>
+                <p class="info">Student</p>
+                <p class="info">Rami.SADKI@ecole-hexagone.com</p>
+                <div class="stats row">
+                    <div class="stat col-xs-4" style="padding-right: 50px;">
+                        <p class="number-stat">1</p>
+                        <p class="desc-stat">Followers</p>
+                    </div>
+                    <div class="stat col-xs-4">
+                        <p class="number-stat">2</p>
+                        <p class="desc-stat">Following</p>
+                    </div>
+                    <div class="stat col-xs-4" style="padding-left: 50px;">
+                        <p class="number-stat">6</p>
+                        <p class="desc-stat">Uploads</p>
+                    </div>
+                </div>
+            </div>
+            <style>
+                #btnPost {
+                    float: left;
+                   
+                    background: #761fc6;
+                    color: #fff;
+                    vertical-align: middle;
+                    position: relative;
+                    z-index: 1;
+                    -webkit-backface-visibility: hidden;
+                }
+               
+                .button--winona {
+                    overflow: hidden;
+                    padding: 0;
+                    -webkit-transition: border-color 0.3s, background-color 0.3s;
+                    transition: border-color 0.3s, background-color 0.3s;
+                    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+                    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+                }
+
+                    .button--winona::after {
+                        content: attr(data-text);
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        opacity: 0;
+                        color: #fff;
+                        -webkit-transform: translate3d(0, 25%, 0);
+                        transform: translate3d(0, 25%, 0);
+                    }
+
+                    .button--winona > span {
+                        display: block;
+                    }
+
+                    .button--winona.button--inverted {
+                        color: #7986cb;
+                    }
+
+                        .button--winona.button--inverted:after {
+                            color: #fff;
+                        }
+
+                    .button--winona::after,
+                    .button--winona > span {
+                        padding: 1em 2em;
+                        -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+                        transition: transform 0.3s, opacity 0.3s;
+                        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+                        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+                    }
+
+                    .button--winona:hover {
+                        border-color: #3f51b5;
+                        background-color: rgba(63, 81, 181, 0.1);
+                    }
+
+                    .button--winona.button--inverted:hover {
+                        border-color: #21333C;
+                        background-color: #21333C;
+                    }
+
+                    .button--winona:hover::after {
+                        opacity: 1;
+                        -webkit-transform: translate3d(0, 0, 0);
+                        transform: translate3d(0, 0, 0);
+                    }
+
+                    .button--winona:hover > span {
+                        opacity: 0;
+                        -webkit-transform: translate3d(0, -25%, 0);
+                        transform: translate3d(0, -25%, 0);
+                    }
+            </style>
+            <div class="right col-lg-8">
+
+                <span class="follow">Follow</span>
+                <a href="@Url.Action("Index","FileUpload")" class="button button--winona button--border-thin " data-text="Add Post" id="btnPost"><span>Add Post</span></a>
+
+
+                <div class="row gallery" style="margin-top: 12%;">
+                    
+                    <div class="col-md-4">
+                        <img src="~/UploadedFiles/t1 (1).png" />
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/UploadedFiles/t1 (2).png" />
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/UploadedFiles/t1 (3).png" />
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/UploadedFiles/t1 (4).png" />
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/UploadedFiles/t1 (5).png" />
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/UploadedFiles/t1 (6).png" />
+                    </div>
+                </div>
+            </div>
+    </main>
+</div>
